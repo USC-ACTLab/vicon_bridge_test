@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="target_frame" />
+
+  <!-- run vicon bridge -->
+  <include file="$(find vicon_bridge)/launch/vicon.launch"/>
+  <!-- <include file="$(find lightweight_vicon_bridge)/launch/vicon_bridge.launch"/> -->
+
+  <node name="latency" pkg="vicon_bridge_test" type="msg_latency.py" output="screen">
+    <param name="target_frame" value="$(arg target_frame)" />
+  </node>
+
+</launch>
